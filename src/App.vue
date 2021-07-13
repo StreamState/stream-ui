@@ -9,7 +9,6 @@
 
 <script>
 import Navbar from "@/components/Navbar.vue";
-import Firebase from "firebase";
 // eslint-disable-next-line no-unused-vars
 
 export default {
@@ -22,23 +21,8 @@ export default {
       user: null,
     };
   },
-  methods: {
-    logout: function () {
-      Firebase.auth()
-        .signOut()
-        .then(() => {
-          this.user = null;
-          this.$router.push("login");
-        });
-    },
-  },
-  mounted() {
-    Firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        this.user = user.email;
-      }
-    });
-  },
+  methods: {},
+  mounted() {},
 };
 </script>
 
