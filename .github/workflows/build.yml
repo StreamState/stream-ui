@@ -18,7 +18,10 @@ jobs:
         run: |
           npm ci
           npm run build
-          zip -r dist.zip dist
+          cd dist
+          zip -r dist.zip *
+          cd ..
+          mv dist/dist.zip dist.zip
 
       - name: Release
         uses: ncipollo/release-action@v1
