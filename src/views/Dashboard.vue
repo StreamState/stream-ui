@@ -10,8 +10,9 @@
       />
       <b-table
         :fields="fields"
-        :items="jobs"
+        :items="provider"
         :filter="filter"
+        :busy.sync="isBusy"
         hover
         responsive
       />
@@ -33,11 +34,17 @@ export default {
       { key: "execution_attempts", sortable: true },
       { key: "submission_attempts", sortable: true },
     ],
-    jobs: fetch("/api/applications", {
-      method: "GET",
-      credentials: "include",
-    }).then((response) => response.json()),
+    isBusy: false,
   }),
+  methods: {
+    provider: () =>
+      fetch("/api/applications", {
+        method: "GET",
+        credentials: "include",
+      })
+        .then((response) => response.json())
+        .catch(() => []),
+  },
 };
 </script>
 
