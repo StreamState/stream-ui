@@ -8,41 +8,22 @@
 </template>
 
 <script>
-import Navbar from '@/components/Navbar.vue'
-import Firebase from 'firebase';
+import Navbar from "@/components/Navbar.vue";
 // eslint-disable-next-line no-unused-vars
-import db from './db.js';
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Navbar
+    Navbar,
   },
-  data: function() {
+  data: function () {
     return {
-      user: null
+      user: null,
     };
   },
-  methods: {
-    logout: function(){
-      Firebase.auth()
-        .signOut()
-        .then(
-          ()=> {
-            this.user = null;
-            this.$router.push('login');
-          }
-        )
-    }
-  },
-  mounted() {
-    Firebase.auth().onAuthStateChanged( user => {
-      if(user) { 
-        this.user = user.email 
-      }
-    })
-  }
-}
+  methods: {},
+  mounted() {},
+};
 </script>
 
 <style lang="scss">

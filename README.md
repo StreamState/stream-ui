@@ -1,4 +1,5 @@
 # stream-state-ui
+This repo will be used to view jobs and perform diagnosis. 
 
 ## Project setup
 ```
