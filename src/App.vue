@@ -1,9 +1,7 @@
 <template>
   <div>
-    <Navbar :user="user" @logout="logout" />
-    <b-container fluid>
-      <router-view :user="user" />
-    </b-container>
+    <Navbar />
+    <router-view />
   </div>
 </template>
 
@@ -17,9 +15,7 @@ export default {
     Navbar,
   },
   data: function () {
-    return {
-      user: null,
-    };
+    return {};
   },
   methods: {},
   mounted() {},

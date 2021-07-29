@@ -1,5 +1,16 @@
 <template>
   <div>
+    <b-jumbotron>
+      <b-container>
+        <b-row class="jumbo-text">
+          <b-col lg="6" md="6" sm="12">
+            <h1 class="display-2">Stream State</h1>
+            <h2 class="lead">Real Time. Real Simple. Real Results.</h2> <!-- someone please change this -->
+          </b-col>
+        </b-row>
+      </b-container>
+    </b-jumbotron>
+
     <b-container>
       <b-card-group columns class="my-5">
         <b-card v-for="item in items" :key="item.id">
@@ -9,7 +20,7 @@
           </b-card-body>
         </b-card>
       </b-card-group>
-      <router-link to="/dashboard" class="my-5">Go to Dashboard</router-link>
+      <b-link to="/dashboard" class="my-5">Go to Dashboard</b-link>
     </b-container>
   </div>
 </template>
@@ -55,30 +66,13 @@ export default {
 </script>
 
 <style scoped>
-#editor {
-  overflow-y: hidden;
-}
-#output .card {
-  height: 85vh;
-  overflow-y: scroll;
-}
-#editor .card {
-  height: 85vh;
-  overflow-y: scroll;
-  background: #f7f7f7;
-}
-.my-editor {
-  background: #f7f7f7;
-  color: #ccc;
-  font-family: Fira code, Fira Mono, Consolas, Menlo, Courier, monospace;
-  font-size: 0.7rem;
-  line-height: 1.5;
-  overflow-y: scroll;
-}
-.prism-editor__textarea:focus {
-  outline: none;
-}
-.hidden {
-  visibility: hidden;
-}
+  .jumbotron {
+    background: url("https://www.dropbox.com/s/64oqwwslsctfz8q/grid-3227320_1920.jpeg?raw=1") no-repeat center center fixed; 
+    background-size: cover;
+    height: 70vh;
+    margin: auto;
+  }
+  .jumbo-text {
+    margin-top: 12%;
+  }
 </style>
