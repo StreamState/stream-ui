@@ -1,56 +1,28 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid px-5">
-        <a class="navbar-brand" href="#">Stream State</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav"></ul>
-        </div>
-      </div>
-    </nav>
-
-    <div class="container-fluid p-5">
-      <div id="admin-list" class="row row-cols-1 row-cols-md-3 g-4">
-        <div v-for="item in items" :key="item.id">
-          <div class="col">
-            <div class="card">
-              <div class="card-body">
-                <a :href="item.link">
-                  <h5 class="card-title">{{ item.title }}</h5>
-                </a>
-                <p class="card-text">{{ item.body }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <router-link to="/dashboard">Go to Dashboard</router-link>
-    </div>
+    <b-container>
+      <b-card-group columns class="my-5">
+        <b-card v-for="item in items" :key="item.id">
+          <b-card-body>
+            <b-card-title><a :href="item.link">{{ item.title }}</a></b-card-title>
+            <b-card-text>{{ item.body }}</b-card-text>
+          </b-card-body>
+        </b-card>
+      </b-card-group>
+      <router-link to="/dashboard" class="my-5">Go to Dashboard</router-link>
+    </b-container>
   </div>
 </template>
 
 <script>
 export default {
   name: "Home",
-  el: "#admin-list",
   data: () => ({
     items: [
       {
         id: 0,
         title: "Argo",
-        body: "Argo is a robust workflow engine for Kubernetes that enables the implementation of each step in a workflow as a container. It provides simple, flexible mechanisms for specifying constraints between the steps in a workflow and artifact management for linking the output of any step as an input to subsequent steps.",
+        body: "A robust workflow engine for Kubernetes that enables the implementation of each step in a workflow as a container.",
         link: "/ui",
       },
       {
@@ -62,7 +34,7 @@ export default {
       {
         id: 2,
         title: "Graphs",
-        body: "A multi-platform open source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources.",
+        body: "Interacrtive charts, graphs, and alerts for the web when connected to supported data sources.",
         link: "/grafana",
       },
       {
@@ -74,7 +46,7 @@ export default {
       {
         id: 4,
         title: "API Docs",
-        body: "A technical content deliverable, containing instructions about how to effectively use and integrate with an API.",
+        body: "Instructions on how to effectively use and integrate Stream State with an API(s).",
         link: "/docs",
       },
     ],
